@@ -1,4 +1,4 @@
 class TranslatorView < ApplicationView
-    use_glade
-    # Add your stuff here.
+  root :translator_hpaned
+  use_glade
 end
