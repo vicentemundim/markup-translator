@@ -17,9 +17,7 @@ class MainController < RuGUI::BaseMainController
   end
 
   def new_file(widget)
-    file_id = self.manager.new_file
-    translator_root_widget = self.translator_controller.new_translator_view(file_id)
-    self.main_view.add_new_file_page(file_id, translator_root_widget)
+    self.translator_controller.new_translator
   end
 
   def quit_application(widget = nil, event = nil)
