@@ -1,0 +1,3 @@
+h1. Markup Translator
+
+A RuGUI application which can translate text into markup using various formats like textile or markdown.
