@@ -12,13 +12,16 @@ class MainController < RuGUI::BaseMainController
     register_view :about_view
   end
 
-  def open_about_dialog(widget)
+  on :about_menuitem, 'activate' do |widget|
     self.about_view.about_dialog.show
   end
 
-  def new_file(widget)
+  on :new_menuitem, 'activate' do |widget|
     self.translator_controller.new_translator
   end
+
+  on :main_window, 'delete-event', :quit_application
+  on :quit_menu_item, 'activate', :quit_application
 
   def quit_application(widget = nil, event = nil)
     quit
