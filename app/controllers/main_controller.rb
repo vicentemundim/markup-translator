@@ -21,7 +21,7 @@ class MainController < RuGUI::BaseMainController
   end
 
   on :main_window, 'delete-event', :quit_application
-  on :quit_menu_item, 'activate', :quit_application
+  on :quit_menuitem, 'activate', :quit_application
 
   def quit_application(widget = nil, event = nil)
     quit

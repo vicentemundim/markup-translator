@@ -1,5 +1,5 @@
 class MainView < ApplicationView
-  use_glade
+  use_builder
 
   def add_new_file_page(file_id, translator_root_widget)
     self.helper.open_file(file_id)

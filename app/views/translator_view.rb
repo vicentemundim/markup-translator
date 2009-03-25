@@ -2,7 +2,7 @@ require 'gtkmozembed'
 
 class TranslatorView < ApplicationView
   root :translator_hpaned
-  use_glade
+  use_builder
 
   def setup_widgets
     build_widget(Gtk::MozEmbed, :browser, :browser_vbox)

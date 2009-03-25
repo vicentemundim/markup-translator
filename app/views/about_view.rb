@@ -1,7 +1,7 @@
 class AboutView < ApplicationView
-  use_glade
+  use_builder
 
-  def on_about_dialog_response(widget, event)
-    self.about_dialog.hide
+  on :about_dialog, 'response' do |widget, event|
+    widget.hide
   end
 end
