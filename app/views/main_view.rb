@@ -1,12 +1,12 @@
 class MainView < ApplicationView
   use_builder
 
-  def add_file_page(file_id, translator_root_widget, options = {})
-    self.helper.open_file(file_id)
+  def add_file_page(file, translator_root_widget, options = {})
+    self.helper.open_file(file.file_id)
 
-    label = options[:new] ? new_page_label : file_id
+    label = options[:new] ? new_page_label : file.filename
     add_page(translator_root_widget, label)
-    focus_page(file_id)
+    focus_page(file.file_id)
   end
 
   def add_page(page_widget, label)
@@ -34,7 +34,7 @@ class MainView < ApplicationView
 
   def contents_updated_file_label_for(file)
     page_index = self.helper.page_index_for(file.file_id)
-    label = file.file_id.dup
+    label = file.filename
 
     if file.unsaved_changes?
       label << "*" unless label.end_with?("*")

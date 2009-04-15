@@ -79,8 +79,8 @@ class TranslatorController < ApplicationController
     display_browser_preview(file_id)
   end
 
-  def add_file_page_for(file_id, options = {})
-    main_controller.main_view.add_file_page(file_id, view_for_file(file_id).root_widget, options)
+  def add_file_page_for(file, options = {})
+    main_controller.main_view.add_file_page(file, view_for_file(file.file_id).root_widget, options)
   end
 
   def property_markup_translator_file_unsaved_changes_changed(model, new_value, old_value)
@@ -226,7 +226,7 @@ class TranslatorController < ApplicationController
 
   def add_file_page(options = {})
     new_translator_view(@file.file_id)
-    add_file_page_for(@file.file_id, options)
+    add_file_page_for(@file, options)
     update_file_page_contents_for(@file)
     connect_translator_contents_changed_signal_for(@file.file_id)
   end

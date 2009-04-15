@@ -41,6 +41,14 @@ class MarkupTranslatorFile < RuGUI::BaseModel
     end
   end
 
+  def filename
+    if self.filesystem_path.nil?
+      self.file_id.dup
+    else
+      File.basename(self.filesystem_path)
+    end
+  end
+
   def markup_contents
     respond_to?(markup_contents_method) ? send(markup_contents_method) : self.contents
   end
