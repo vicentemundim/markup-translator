@@ -1,0 +1,2 @@
+class CanceledAction < StandardError
+end

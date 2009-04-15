@@ -12,18 +12,35 @@ class MainController < RuGUI::BaseMainController
     register_view :about_view
   end
 
-  on :about_menuitem, 'activate' do |widget|
-    self.about_view.about_dialog.show
-  end
-
-  on :new_menuitem, 'activate' do |widget|
+  on :action_new, 'activate' do
     self.translator_controller.new_translator
   end
 
-  on :main_window, 'delete-event', :quit_application
-  on :quit_menuitem, 'activate', :quit_application
+  on :action_open, 'activate' do
+    self.translator_controller.open
+  end
 
-  def quit_application(widget = nil, event = nil)
+  on :action_save, 'activate' do
+    self.translator_controller.save
+  end
+
+  on :action_save_as, 'activate' do
+    self.translator_controller.save_as
+  end
+
+  on :action_close, 'activate' do
+    self.translator_controller.close
+  end
+
+  on :action_about, 'activate' do
+    self.about_view.about_dialog.show
+  end
+
+  on :action_quit, 'activate' do
+    quit
+  end
+
+  on :main_window, 'delete-event' do
     quit
   end
 end

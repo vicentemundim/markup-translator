@@ -26,4 +26,6 @@ RuGUI::Initializer.run do |config|
   # See with more details here:
   # http://www.rubybrain.com/api/ruby-1.8.7/doc/index.html?a=M000253&name=strftime
   #config.logger[:format] = "%Y-%m-%d %H:%M:%S"
+
+  config.gem 'RedCloth'
 end
